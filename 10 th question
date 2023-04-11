@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+int main() {
+    int decimal, binary = 0, base = 1, remainder;
+    
+    printf("Enter a decimal number: ");
