@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main() {
+    int amount, notes = 0;
+    int denominations[] = {500, 100, 50, 20, 10, 5, 2, 1};
+    int num_denominations = sizeof(denominations)/sizeof(denominations[0]);
+
+    printf("Enter the amount: ");
