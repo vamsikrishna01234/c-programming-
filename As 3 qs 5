@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char string[100];
+    int count[256] = {0}, i, max = 0, len;
+    char result;
+ 
+    printf("Enter a string : ");
+    fgets(string, sizeof(string), stdin);
+    len = strlen(string);
+ 
+    for(i = 0; i < len; i++)
+    {
+        count[string[i]]++;
+        if(max < count[string[i]])
+        {
+            max = count[string[i]];
+            result = string[i];
+        }
+    }
+ 
+    printf("Max repeated character in the string = %c", result);
+ 
