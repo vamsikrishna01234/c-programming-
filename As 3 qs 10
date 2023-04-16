@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
+void reverse_string(char *str);
+
+int main() {
+    char str[100];
+    printf("Enter any String :: ");
+    scanf("%s", str);
+
+    printf("The Original String is :: %s\n", str);
+
+    reverse_string(str);
+
+    printf("The Reverse of the String [ %s ] is :: %s\n", str, str);
+
+    return 0;
+}
+
