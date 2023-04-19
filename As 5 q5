@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ALPHABET_SIZE 26
+
+int main() {
+    FILE *in_file, *out_file;
+    int c, count[ALPHABET_SIZE] = {0};
+
+    // Open the input file for reading
+    in_file = fopen("data.txt", "r");
+    if (in_file == NULL) {
+        fprintf(stderr, "Error: Cannot open file 'data.txt'\n");
+        exit(1);
+    }
+
+    // Read the input file character by character
+    while ((c = fgetc(in_file)) != EOF) {
+        // Ignore non-alphabetic characters
+        if (c >= 'a' && c <= 'z') {
+            count[c - 'a']++;
+        } else if (c >= 'A' && c <= 'Z') {
+            count[c - 'A']++;
+        }
+    }
+
+    // Open the output file for writing
+    out_file = fopen("statistics.txt", "w");
+    if (out_file == NULL) {
+        fprintf(stderr, "Error: Cannot create file 'statistics.txt'\n");
+        exit(1);
+    }
+
+    // Write the letter counts to the output file
+    for (int i = 0; i < ALPHABET_SIZE; i++) {
+        fprintf(out_file, "%c: %d\n", 'a' + i, count[i]);
+    }
+
+    // Close the files
+    fclose(in_file);
+    fclose(out_file);
+
+    return 0;
+}
